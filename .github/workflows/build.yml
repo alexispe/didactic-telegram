@@ -32,7 +32,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: my-app/nodejs:latest
+          tags: ghcr.io/alexispe/nodejs:latest
           target: nodejs
   test:
     runs-on: ubuntu-latest
