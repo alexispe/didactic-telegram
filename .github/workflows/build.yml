@@ -35,7 +35,7 @@ jobs:
     needs: [build]
     strategy:
       matrix:
-        browser: ['chrome', 'firefox', 'edge']
+        browser: ['chrome', 'edge']
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -47,9 +47,6 @@ jobs:
           key: ${{ runner.os }}-node_modules-${{ hashFiles('package-lock.json') }}
       - name: Cypress run
         uses: cypress-io/github-action@v4
-        container:
-          image: cypress/browsers:node12.16.1-chrome80-ff73
-          options: --user 1001
         with:
           build: npm run build
           start: npm run start
